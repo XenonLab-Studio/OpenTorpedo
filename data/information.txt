@@ -1,0 +1,51 @@
+The data directory contains two important sets of files. Both are
+required for scenarios and are assigned matching numbers.
+The first set of files are the ship files. These tell us what ships
+will be involved in a mission.
+
+The format for the ships files goes like this:
+
+Type Class Friend Speed Depth Heading Latitude Longitude Sonar Mood
+
+Type determines submarine (0) or ship (1) or helicopter (5).
+Class must match to a class from the "ships" directory.
+Friend tells us which side the ship is on. Zero is a FOE, 1 is a Friend,
+       2 is unknown and 3 is neutral.
+Speed is in knots, heading in degrees, depth is in feet.
+Possible moods are Convoy (maintain formation), Attack (hunt for enemies)
+and Passive (try to stay out of the way).
+
+The follwing example shows us two ships. The first is a friendly submarine
+traveling at 5 knots at 47 feet, due east. The second entry is a surface
+ship (merchant class) traveling at 15 knotes south-west.
+
+0 1 1 5 47 90 150000 150000 75.0 1
+1 4 3 15 0 230 140000 170000 115.0 1 Passive
+
+
+
+The other kind of file is the mission file. This will assign required
+tasks to ships. The mission file must assign missions to ships in the
+same order the ships file lists them.
+
+The format for the file is as follows:
+
+Action Timer
+
+Action can be any one of the following:
+None - do not assign any special significance to this ship
+Sink - to complete the mission, this ship must be sunk
+Alive - To complete this mission this ship must remain alive
+Find  - We must find and track this target to beat the mission.
+
+The optional Timer variable only applies to ships marked with "Alive".
+This tells us how long, in seconds, the ship must survive for the mission
+to be a success.  
+
+For example, we can create a mission file to go with
+the above ships file which looks like this:
+
+None
+Find
+
+

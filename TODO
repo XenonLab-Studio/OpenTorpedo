@@ -1,0 +1,21 @@
+Add tutorial
+
+Add new mood, Hunt, which will cause AI to actively
+search for submarines, including the use of active sonar.
+
+Add waypoints?
+Add map page item, zoom factor.
+Helicopters should check out torpedoes being fired.
+
+More short-cut keys for changing course, speed and depth.
+
+Make interface scale.
+The result of that command was:
+
+Couldn't set video mode...
+OpenTorpedo requires 1024x768 @ 16 bpp
+No video mode large enough for 1024x768
+
+I think my screen is 1024x600, but I use devices with smaller screens sometimes.
+
+

@@ -1,0 +1,433 @@
+  - Fixed compile error on Windows, missing header include.
+
+======= OpenTorpedo-1.4 ==================
+
+  - Added new mission, provided by David Luckie.
+
+====== OpenTorpedo-1.3 ===================
+
+  - Added unistd.h and corrected DrawPixel declaration
+    to fix compile/build errors.
+
+  - Removed un-needed -k command line option. It
+    was buggy and causing compiler warnings.
+
+
+========= OpenTorpedo-1.2 Jun 3, 2012 ===========
+
+  - Applied makefile patch from Vincent.
+
+  - We no longer create font and largeont files in
+    the directory "./data/" OpenTorpedo used to try to
+    save our fonts in case the font files were missing,
+    but this is no longer required and is probably
+    improper behaviour. This fix closes Debian bug
+    #675744.
+    Thanks to Guillem for pointing out the error.
+
+
+
+========== OpenTorpedo-1.1 Nov 7, 2011 ============
+
+  - Updated makefile to support more data locations.
+
+  - Helicopters will guard friendly ships if they cannot
+    hear enemies.
+
+  - Subs attack a little slower to avoid alerting everyone.
+
+  - Helicopters no longer rapid-fire torpedoes.
+
+  - Subs will now stay below a thermal if they hear helicopters.
+
+  - Helicopters will shoot at enemy subs.
+
+  - Helicopters should now track enemy submarines.
+
+  - Helicopter now moves randomly when searching for
+    targets and it has nothing better to do.
+
+  - Added debug compiler flag DEBUG_HELICOPTER.
+
+  - Removed "ships" index variable. With linked lists we
+    should not need it.
+
+  - Added helicopter class.
+
+======== OpenTorpedo-1.0 Oct 22, 2011 ============
+
+  - Game now recognizes OPTDIR variable, for when OpenTorpedo
+    is installed in /opt/OpenTorpedo/
+
+  - Corrected/improved makefile.
+    Patch provided by Vincent.
+
+  - Added optinstall option for Makefile, installs
+    OpenTorpedo under /opt/OpenTorpedo
+
+========== OpenTorpedo-0.9 September 26, 2011  =========
+
+  - Added sub vs sub mission.
+
+  - Stack holding ESM data is now of dynamic size. Should no
+    longer crash when faced with many surface targets.
+
+  - Updated makefile. Added manual page, desktop entry and icon.
+    Files and updates provided by Vincent on behave of 
+    the Debian project.
+
+  - Vessels in attack mood who have no target slow down
+    to cruising speed so they can hear better.
+
+  - Added escort mission.
+
+  - When an escorted ship is sunk the mission fails.
+
+  - Fixed bug which prevented all sounds from showing up on
+    sonar display.
+
+  - We should now be able to make missions where a vessel's
+    goal is to stay alive for N seconds.
+
+  - Sound signals should show up brighter on sonar display.
+
+  - Added new recon mission.
+
+  - AI subs should not "randomly" move to surface during
+    patrol.
+
+  - Vessel depth changes a little faster now, even at
+    slow speeds. Simplified depth change calculation.
+
+  - When traveling in reverse the sub should rise/fall in
+    the proper direction.
+
+  - AI subs should change depth sometimes.
+
+  - Fixed bug which would prevent AI from shooting at
+    near targets.
+
+  - AI vessels should shoot at different ranges depending
+    on their mood and a little randomness.
+
+  - Enemy surface ships now detect radar signals and
+    investigate.
+
+  - Pinging at escorts in a convoy will cause the escorts to
+    examine the pinging vessel.
+
+  - AI now notices pinging and will move to investigate.
+
+  - Added keys for moving to periscope depth and surfacing.
+    X and S respectively.
+
+  - Radar now gives us the location, but not a firm
+    contact on surface vessels. Prevents "cheating'
+    when on recon missions.
+
+  - Ship type is now included in target information.
+
+  - Added new carrier class ships.
+
+  - AI vessels in ATTACK mood should now chase after the
+    origin of torpedoes.
+
+  - Reduced thermal dampening of sound from 25% to 15%
+
+  - Player should be informed if they have been hit.
+
+  - Updated English PDF manual.
+
+  - Added makefile target "tarball" for creating source packages.
+
+  - Stack object is now a linked list, not an array. Allows for
+    more ships/subs/sonar data.
+
+============ OpenTorpedo-0.8 released September 18, 2011 ==========
+
+  - Display text feedback when changing depth or holding depth.
+
+  - Added new mission, hunt for a Typhoon.
+
+  - We should no longer display target information if we
+    do not have a strong contact.
+    Re-wrote Next_Target function to only return strong targets.
+
+  - Added controls to go up/down a thermal. Added key to hold
+    current depth. See README file for details.
+
+  - Depth and thermal meter now appears on helm screen and nav screen.
+
+  - Use SDL_gfx functions to draw arrows on helm screen.
+    Minor code clean-up. Patch provided by Rick.
+
+  - Added patch from Rick to show ordered heading vs actual
+    heading on helm screen.
+
+  - Added depth and thermal indicator to the tactical map screen.
+
+  - Added Spanish translation of the manual from Fernando Liebana.
+
+  - Make sure we define DATADIR, even if we don't use a makefile.
+
+  - Thermal layers now filter sound.
+
+  - Rewrote code for getting command line options to make it
+    compatable across operating systems.
+
+  - Compatibility functions for WIN32 created. These functions
+    are stored in winfunctions.cpp and winfunctions.h
+    strncasecmp and strcasestr functions are now duplicated
+    and wrapped up in ifdefs.
+
+  - Converted snprintf calls to sprintf for WIN32
+
+  - Converted fabs() calls to abs() in radar.cpp for the WIN32 platform.
+
+  - Dependency unistd.h removed from main.cpp
+
+  - Added thermal layers to listening function Can_Hear().
+
+  - Added DEBUGMAP flag in Makefile to help test MAP class.
+
+  - Added MAP class, which will handle depth and thermal layer information.
+
+============ OpenTorpedo-0.7 released August 15, 2011 =============
+
+  - Added sounds for pinging, torpedo launch and explosions.
+
+  - Added sounds directory creation to makefile.
+
+  - Added click button for active sonar.
+
+  - Torpedo room buttons looks more torpedo-like.
+
+  - Ships will run from torpedoes, even if they are chasing/attacking.
+
+  - Ships now fire torpedoes at ships they are chasing.
+
+  - Added active sonar for player.
+
+  - Ships and subs should now remain within the map boarders.
+
+  - Sonar contacts now get stronger/weaker properly. Moved InBaffles
+    check to the Submarine class to make it modular.
+
+  - Sonar display is no longer erased by ESM or radar data.
+
+  - Ships with sonar now warn other ships about torpedoes in
+    the water.
+
+  - Game should remain stable if a torpedo we are tracking
+    explodes or runs out of fuel.
+
+  - Surface ships with radar should be able to detect anything on
+    or above the surface.
+
+  - Ships running from torpedoes will now eventually change course
+    and slow down if no more torpedoes are detected.
+
+  - Ships in a convoy now react when one of them is hit.
+    Merchants scatter.
+
+  - Moved update functions out of timer function to avoid
+    overlap if too much is going on. Instead timer function now
+    sets a flag to let us know we should update.
+    This should fix the X11 crashes.
+
+  - Torpedoes must be at the proper depth to strike a target.
+
+  - Game now properly reports torpedoes and noisemakers
+    running out of fuel.
+
+============ OpenTorpedo-0.6 released July 5, 2011 ==========
+
+  - Fixed Makefile path error.
+
+  - Noisemakers run in straight line at full speed.
+    They used to circle slowly.
+
+  - Noisemakers appear on tactical map.
+
+  - Added AIDEBUG flag to help figure out what the AI is thinking.
+    It's much less verbose than plain DEBUG.
+
+  - AI subs/ships should only run from torpedoes aimed at them.
+
+  - Ships in a convoy will no longer wander off randomly.
+
+  - Once towed array is cut a new array cannot be extended.
+
+  - Added new mission.
+
+  - Player can now cut the towed sonar array to avoid
+    speed limitation.
+
+  - Player is now limited to six launches at a time.
+
+  - Fixed crash issue with stack module.
+
+  - Noisemakers now distract torpedoes (sometimes).
+
+  - Player is now warned if torpedoes are coming toward
+    the player's submarine.
+
+  - When torpedoes cannot hear their target, they will try
+    to find a new one.
+
+  - The game now searches for data files more effeciently by looking
+    in the preset DATADIR, which is based on PREFIX. See the Makefile.
+
+  - Simplified version detection. Value is now stored in top-level
+    makefile.
+
+  - Added "ships" directory to Makefile's install section.
+
+  - Updated src/Makefile and Makefile to remove duplicate effort.
+
+  - Added Makefile.windows to ease cross-platform builds. Added
+    target "make windows" to top-level make file.
+
+  - Fixed some compiler errors/warnings to make game more cross-platform
+    friendly. 
+
+============ OpenTorpedo-0.5 released June 26, 2011 ==========
+
+  - Main menu can now select and launch missions.
+
+  - Added new drawing function CircleFill()
+
+  - Game now displays main menu with interactive buttons.
+
+  - We should only need to find data files once, then the files module
+    remembers their location.
+
+  - Moved primative drawing functions to draw.h, draw.cpp from
+    main.h, main.cpp. This allows us to draw things in other
+    modules, like the menu.
+
+  - Created Menu module for displaying and working woth the main menu.
+
+  - Sonar screen now shows angle and direction to target.
+
+  - If the player's sub is destoryed, the game should now end gracefully.
+
+  - Losing a torpedo target no longer causes crash.
+
+  - Created top-level make file for easier access.
+
+  - Towed sonar array limits sub's maximum speed.
+
+  - Crew now gives feedback about extending/reteiving towed array.
+
+  - Sonar display now adds more colour contrast to different types
+    of signals. Surface ships are green, submarines blue and torpedoes
+    are red.
+
+  - Torpedoes show up on sonar.
+
+  - Created new mission
+
+  - Missions can now be accessed using the -m flag on the command line.
+
+
+========== OpenTorpedo-0.4 released June 11, 2011 =========
+
+  - Separated some ship-file/class file information.
+
+  - Added basic mission parameters.
+
+  - Targeting system now respects the new ship linked list format.
+
+  - Adjusted ship data file format to be more clean.
+
+  - Ships are now stored in a linked list, rather than fixed array.
+
+  - Submarines now run from torpedoes.
+
+  - Ships with sonar will now run away from torpedoes.
+
+  - Fixed torpedo's sonar.
+
+  - Fixed ESM station display. Signals from targets now display.
+
+  - Converted abs() calls to fabs for compatibility with FreeBSD.
+
+
+============ OpenTorpedo-0.3 released May 30, 2011 =================
+
+  - Non-player ships now make course changes on their own.
+
+  - Ships now take damage when hit by torpedoes and sink.
+
+  - Torpedoes can now run out of fuel (after around 8-10 miles).
+
+  - Added torpedo clean-up code.
+
+  - Torpedos now listen for and track their targets.
+
+  - Torpedos and noisemakers can now be fired by the player
+    and are shown on the tactical map.
+    
+  - Torpedoes and noisemakers can be loaded using the mouse.
+
+  - Reduced CPU usage on Weapons screen by about 50%.
+
+  - Toned down waterfall display a little, reduced brightness.
+
+  - Added weapons console and the ability to load/unload tubes.
+
+  - Ship class data (name, speed, depth) is now kept in the
+    "ships" directory and is loaded at the beginning of each
+    scenario.
+
+  - Now we can only select a target if we can see it on the map.
+
+
+  ============ OpenTorpedo-0.2 released May 23, 2011 ================
+
+  - Added rough manual in ODF and PDF formats.
+
+  - Sub now turns/dives a little faster.
+
+  - We now display a message when switching screens to show which
+    console we are viewing.
+
+  - Desired depth and speed now stay within sane ranges.
+
+  - Player can now get information on selected targets.
+
+  - TMA screen wasn't working, removed it.
+
+  - Targets are now picked up faintly at first, then become solid
+    contacts and fade out when the signal is lost.
+
+  - Made sure detection through sonar, esm and radar work.
+    Also made sure radar and esm does not track subs.
+
+  - Players can only see ships on the map if they can detect them.
+
+  - Player ships is now green and thicker on the map, making
+    it easier to spot.
+
+  - Extended CreateShips function to allow for more missions.
+    Missions can be created in data/ships.dat files.
+
+  - Radar and ESM no longer work is we are below periscope depth.
+
+  - Makefile now handles install and deinstall targets
+
+  - Massive code clean-up to allow the game to access data and
+    image files in other locations (ie /usr/local/share/games/OpenTorpedo)
+
+  - Moved data and images files into their own directories.
+
+  - Map now zooms in/out smoothly
+
+  - Reduced CPU usage, was around 95-100%. Should now be closer
+    to 10% on most modern machines.
+
+
+
+
+===========  OpenTorpedo 0.1 released May 12, 2011 ===============

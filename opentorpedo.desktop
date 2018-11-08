@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=OpenTorpedo
+GenericName=Tactical submarine simulator
+Comment=Command a submarine in a deep ocean environment
+Exec=OpenTorpedo -s
+Icon=OpenTorpedo
+Terminal=false
+Type=Application
+Categories=Game;

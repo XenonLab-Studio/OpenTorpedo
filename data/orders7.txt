@@ -1,0 +1,5 @@
+Mission 8
+There is a convoy of ships moving through your
+patrol area. Move to intercept and sink as many
+enemy ships as possible. Be careful though, do
+not sink any neutral transports!

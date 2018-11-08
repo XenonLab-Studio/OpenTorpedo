@@ -1,0 +1,24 @@
+Each ship gets a class file. The files are formated wit hthe following fields:
+
+Speed MaxDepth Rudder Torpedos HullStrength HasSonar SonarAngle ClassName ClassType
+
+For example:
+33 950 10 20 2 1 90.0 GenericSub SSN
+
+
+Each class is assigned a number. Currently the following classes exist:
+
+Name		Class
+Los Angeles SSN	 1
+Akula SSN	 2
+Destroyer DD	 3
+Merchant	 4
+Torpedo		 5
+NoiseMaker	 6
+Typhoon SSBN     7
+Nimitz CV	 8
+Tbilisi CV       9
+Alpha SSN	 10
+Ohio SSBN	 11
+Helicopter       12
+
